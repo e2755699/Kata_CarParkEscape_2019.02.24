@@ -19,14 +19,21 @@ namespace Tests
             EscapeShouldBe(new string[] { "R2" });
         }
 
+        [Test]
+        public void StartPositionNotAtFarLeftPareSpace()
+        {
+            GivenParkGarage(new int[,] { { 0, 2, 0 } });
+            EscapeShouldBe(new string[] { "R1" });
+        }
+
         private void EscapeShouldBe(string[] expected)
         {
-            Assert.AreEqual(expected, _carParkEscape.FindExit());
+            Assert.AreEqual(expected, _carParkEscape.EscapePath());
         }
 
         private void GivenParkGarage(int[,] parkGarage)
         {
-            _carParkEscape.ParkGarageDaigram(parkGarage);
+            _carParkEscape.ParkGarageDiagram(parkGarage);
         }
     }
 }
