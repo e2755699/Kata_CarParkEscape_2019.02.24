@@ -10,9 +10,12 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void HappyPath()
         {
-            Assert.Pass();
+            var expected = new string[] { "R2"};
+
+            var carParkEscape = new CarParkEscape(new int[,] { { 2, 0, 0 } });
+            Assert.AreEqual(expected, carParkEscape.FindExit());
         }
     }
 }
