@@ -4,18 +4,29 @@ namespace Tests
 {
     public class Tests
     {
+        private CarParkEscape _carParkEscape;
+
         [SetUp]
         public void Setup()
         {
+            _carParkEscape = new CarParkEscape();
         }
 
         [Test]
         public void HappyPath()
         {
-            var expected = new string[] { "R2"};
+            GivenParkGarage(new int[,] { { 2, 0, 0 } });
+            EscapeShouldBe(new string[] { "R2" });
+        }
 
-            var carParkEscape = new CarParkEscape(new int[,] { { 2, 0, 0 } });
-            Assert.AreEqual(expected, carParkEscape.FindExit());
+        private void EscapeShouldBe(string[] expected)
+        {
+            Assert.AreEqual(expected, _carParkEscape.FindExit());
+        }
+
+        private void GivenParkGarage(int[,] parkGarage)
+        {
+            _carParkEscape.ParkGarageDaigram(parkGarage);
         }
     }
 }

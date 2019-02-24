@@ -2,11 +2,10 @@ namespace Tests
 {
     public class CarParkEscape
     {
-        private readonly int[,] _parkGarage;
+        private int[,] _parkGarage;
 
-        public CarParkEscape(int[,] parkGarage)
+        public CarParkEscape()
         {
-            _parkGarage = parkGarage;
         }
 
         public string[] FindExit()
@@ -17,6 +16,11 @@ namespace Tests
                 move++;
             }
             return new[] { $"R{move}" };
+        }
+
+        public void ParkGarageDaigram(int[,] parkGarage)
+        {
+            _parkGarage = parkGarage;
         }
     }
 }
